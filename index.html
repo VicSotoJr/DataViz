@@ -4,12 +4,16 @@
     <meta charset="utf-8">
     <title>Data Visualization</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   </head>
   <body>
     <h1>Data Visualization</h1>
 
     <!-- OPTIONALLY PUT A SELECT OR BUTTON ELEMENT HERE - FURTHER EXPLORATION ONLY -->
-
+    <button id="button1">1-50</button>
+    <button id="button2">51-100</button>
+    <button id="button3">101-150</button>
     <div id="my-chart-container"></div>
 
     <script type="text/javascript">
@@ -1971,14 +1975,25 @@
 
 
                //Initializing Arrays
+               var empty = new Array();
                var NAdata = new Array();
                var JPdata = new Array();
                var EUdata = new Array();
                var Otherdata = new Array();
                var gameNames = new Array();
+               var NAdata1 = new Array();
+               var JPdata1 = new Array();
+               var EUdata1 = new Array();
+               var Otherdata1 = new Array();
+               var gameNames1 = new Array();
+               var NAdata2 = new Array();
+               var JPdata2 = new Array();
+               var EUdata2 = new Array();
+               var Otherdata2 = new Array();
+               var gameNames2 = new Array();
 
                //This puts the JSON info into arrays in order to populate the chart
-               for(i=0;i<vgsales.length;i++)
+               for(i=0;i<50;i++)
                {
                     NAdata.push(vgsales[i].NA_Sales);
                     JPdata.push(vgsales[i].JP_Sales);
@@ -1986,9 +2001,33 @@
                     Otherdata.push(vgsales[i].Other_Sales);
                     gameNames.push(vgsales[i].Name);
                }
+               for(i=50;i<100;i++)
+               {
+                    NAdata1.push(vgsales[i].NA_Sales);
+                    JPdata1.push(vgsales[i].JP_Sales);
+                    EUdata1.push(vgsales[i].EU_Sales);
+                    Otherdata1.push(vgsales[i].Other_Sales);
+                    gameNames1.push(vgsales[i].Name);
+               }
+               for(i=100;i<150;i++)
+               {
+                    NAdata2.push(vgsales[i].NA_Sales);
+                    JPdata2.push(vgsales[i].JP_Sales);
+                    EUdata2.push(vgsales[i].EU_Sales);
+                    Otherdata2.push(vgsales[i].Other_Sales);
+                    gameNames2.push(vgsales[i].Name);
+               }
+               for(i=0;i<vgsales.length;i++)
+               {
+                    empty.push(0);
+
+               }
+
+
 
                //Creating the chart
-     Highcharts.chart({
+               $(function () {
+              var chart = new Highcharts.chart({
                    chart: {
                        renderTo:'my-chart-container',
                        type: 'column'
@@ -2008,7 +2047,7 @@
                            text: 'Games sold (Millions)'
                        },
                        stackLabels: {
-                           enabled: true,
+                           enabled: false,
                            style: {
                                fontWeight: 'bold',
                                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
@@ -2053,6 +2092,34 @@
                        data: Otherdata
                    }]
               });
+              // The button action
+
+            $('#button1').click(function() {
+                 chart.xAxis[0].setCategories(gameNames);
+                 chart.series[0].setData( NAdata);
+                 chart.series[1].setData( JPdata);
+                 chart.series[2].setData( EUdata);
+                 chart.series[3].setData( Otherdata);
+
+            });
+
+            $('#button2').click(function() {
+                 chart.xAxis[0].setCategories(gameNames1);
+                 chart.series[0].setData( NAdata1);
+                 chart.series[1].setData( JPdata1);
+                 chart.series[2].setData( EUdata1);
+                 chart.series[3].setData( Otherdata1);
+            });
+            $('#button3').click(function() {
+               chart.xAxis[0].setCategories(gameNames2);
+               chart.series[0].setData( NAdata2);
+               chart.series[1].setData( JPdata2);
+               chart.series[2].setData( EUdata2);
+               chart.series[3].setData( Otherdata2);
+
+
+          });
+});
 
 
     </script>
