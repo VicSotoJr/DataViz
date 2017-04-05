@@ -2094,29 +2094,206 @@
               // The button action
 
             $('#button1').click(function() {
-                 chart.xAxis[0].setCategories(gameNames);
-                 chart.series[0].setData( NAdata);
-                 chart.series[1].setData( JPdata);
-                 chart.series[2].setData( EUdata);
-                 chart.series[3].setData( Otherdata);
-
+                 chart = new Highcharts.chart({
+                     chart: {
+                         renderTo:'my-chart-container',
+                         type: 'column'
+                     },
+                     title: {
+                         text: 'Top 150 Most Sold Video Games '
+                     },
+                     xAxis: {
+                         categories: gameNames,
+                         labels: {
+                            rotation: 90
+                        }
+                     },
+                     yAxis: {
+                         min: 0,
+                         title: {
+                             text: 'Games sold (Millions)'
+                         },
+                         stackLabels: {
+                             enabled: false,
+                             style: {
+                                 fontWeight: 'bold',
+                                 color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                             }
+                         }
+                     },
+                     legend: {
+                         align: 'right',
+                         x: -30,
+                         verticalAlign: 'top',
+                         y: 25,
+                         floating: true,
+                         backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                         borderColor: '#CCC',
+                         borderWidth: 1,
+                         shadow: false
+                     },
+                     tooltip: {
+                         headerFormat: '<b>{point.x}</b><br/>',
+                         pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                     },
+                     plotOptions: {
+                         column: {
+                             stacking: 'normal',
+                             dataLabels: {
+                                 enabled: false,
+                                 color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                             }
+                         }
+                     },
+                     series: [{
+                         name: 'North American Sales',
+                         data: NAdata
+                     }, {
+                         name: 'Japanese Sales',
+                         data: JPdata
+                     }, {
+                         name: 'European Sales',
+                         data: EUdata
+                     }, {
+                         name: 'Other Sales',
+                         data: Otherdata
+                     }]
+                });
             });
 
             $('#button2').click(function() {
-                 chart.xAxis[0].setCategories(gameNames1);
-                 chart.series[0].setData( NAdata1);
-                 chart.series[1].setData( JPdata1);
-                 chart.series[2].setData( EUdata1);
-                 chart.series[3].setData( Otherdata1);
+                 chart = new Highcharts.chart({
+                     chart: {
+                         renderTo:'my-chart-container',
+                         type: 'column'
+                     },
+                     title: {
+                         text: 'Top 150 Most Sold Video Games '
+                     },
+                     xAxis: {
+                         categories: gameNames1,
+                         labels: {
+                            rotation: 90
+                        }
+                     },
+                     yAxis: {
+                         min: 0,
+                         title: {
+                             text: 'Games sold (Millions)'
+                         },
+                         stackLabels: {
+                             enabled: false,
+                             style: {
+                                 fontWeight: 'bold',
+                                 color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                             }
+                         }
+                     },
+                     legend: {
+                         align: 'right',
+                         x: -30,
+                         verticalAlign: 'top',
+                         y: 25,
+                         floating: true,
+                         backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                         borderColor: '#CCC',
+                         borderWidth: 1,
+                         shadow: false
+                     },
+                     tooltip: {
+                         headerFormat: '<b>{point.x}</b><br/>',
+                         pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                     },
+                     plotOptions: {
+                         column: {
+                             stacking: 'normal',
+                             dataLabels: {
+                                 enabled: false,
+                                 color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                             }
+                         }
+                     },
+                     series: [{
+                         name: 'North American Sales',
+                         data: NAdata1
+                     }, {
+                         name: 'Japanese Sales',
+                         data: JPdata1
+                     }, {
+                         name: 'European Sales',
+                         data: EUdata1
+                     }, {
+                         name: 'Other Sales',
+                         data: Otherdata1
+                     }]
+                });
             });
             $('#button3').click(function() {
-               chart.xAxis[0].setCategories(gameNames2);
-               chart.series[0].setData( NAdata2);
-               chart.series[1].setData( JPdata2);
-               chart.series[2].setData( EUdata2);
-               chart.series[3].setData( Otherdata2);
-
-
+                 chart = new Highcharts.chart({
+                     chart: {
+                         renderTo:'my-chart-container',
+                         type: 'column'
+                     },
+                     title: {
+                         text: 'Top 150 Most Sold Video Games '
+                     },
+                     xAxis: {
+                         categories: gameNames2,
+                         labels: {
+                            rotation: 90
+                        }
+                     },
+                     yAxis: {
+                         min: 0,
+                         title: {
+                             text: 'Games sold (Millions)'
+                         },
+                         stackLabels: {
+                             enabled: false,
+                             style: {
+                                 fontWeight: 'bold',
+                                 color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                             }
+                         }
+                     },
+                     legend: {
+                         align: 'right',
+                         x: -30,
+                         verticalAlign: 'top',
+                         y: 25,
+                         floating: true,
+                         backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                         borderColor: '#CCC',
+                         borderWidth: 1,
+                         shadow: false
+                     },
+                     tooltip: {
+                         headerFormat: '<b>{point.x}</b><br/>',
+                         pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+                     },
+                     plotOptions: {
+                         column: {
+                             stacking: 'normal',
+                             dataLabels: {
+                                 enabled: false,
+                                 color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                             }
+                         }
+                     },
+                     series: [{
+                         name: 'North American Sales',
+                         data: NAdata2
+                     }, {
+                         name: 'Japanese Sales',
+                         data: JPdata2
+                     }, {
+                         name: 'European Sales',
+                         data: EUdata2
+                     }, {
+                         name: 'Other Sales',
+                         data: Otherdata2
+                     }]
+                });
           });
 });
 
